@@ -1,13 +1,11 @@
-const { format } = require('express/lib/response');
 const moment = require('moment');
 
-function formatMessage(userName,text){
-    return {
-        userName,
-        text,
-        time: moment().format('h:mm a')
-
-    }
+function formatMessage(username, text) {
+  return {
+    username,
+    text,
+    time: moment().format('h:mm a')
+  };
 }
 
 module.exports = formatMessage;
