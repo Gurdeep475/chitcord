@@ -10,6 +10,8 @@ const {
   getRoomUsers
 } = require('./utils/users');
 
+
+const botName = 'ChatBot ';
 const app = express();
 const server = http.createServer(app);
 const io = socketio(server);
@@ -17,7 +19,6 @@ const io = socketio(server);
 // Set static folder
 app.use(express.static(path.join(__dirname, 'public')));
 
-const botName = 'ChatCord Bot';
 
 // Run when client connects
 io.on('connection', socket => {
@@ -26,8 +27,9 @@ io.on('connection', socket => {
 
     socket.join(user.room);
 
+    console.log(botName);
     // Welcome current user
-    socket.emit('message', formatMessage(botName, 'Welcome to ChatCord!'));
+    socket.emit('message', formatMessage(botName, 'Welcome to ChitCord!'));
 
     // Broadcast when a user connects
     socket.broadcast
